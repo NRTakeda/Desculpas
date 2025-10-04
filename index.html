@@ -1,137 +1,41 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <link rel="icon" type="image/png" href="favicon.png">
-    <meta property="og:title" content="Uma Mensagem Importante Para Você!" />
-<meta property="og:description" content="Tenho algo a te dizer..." />
-<meta property="og:image" content="preview.png" />
-<meta property="og:url" content="URL_DO_SEU_SITE_AQUI" /> <meta property="og:type" content="website" />
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Um Pedido de Desculpas</title>
+    <title>Site em Manutenção</title>
     <style>
-        /* Estilos gerais da página */
-        body {
+        body { 
+            background-color: #f3f4f6; 
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
-            font-family: Arial, sans-serif;
+            color: #111827;
         }
-
-        /* A caixinha central */
         .container {
             text-align: center;
-            background-color: white;
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
-
         h1 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 30px;
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
         }
-
-        /* Contêiner para os botões */
-        .botoes {
-            display: flex;
-            justify-content: center;
-            gap: 20px; /* Espaço entre os botões */
-        }
-
-        /* Estilo geral dos botões */
-        button {
-            padding: 10px 25px;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            cursor: pointer;
-            color: white;
-            transition: transform 0.2s ease, background-color 0.2s ease;
-        }
-
-        /* Botão SIM */
-        #sim {
-            background-color: #4CAF50; /* Verde */
-        }
-
-        #sim:hover {
-            background-color: #45a049;
-            transform: scale(1.05);
-        }
-        
-        /* Botão NÃO */
-        #nao {
-            background-color: #f44336; /* Vermelho */
-            /* A posição será alterada pelo JavaScript */
+        p {
+            font-size: 1.125rem;
+            color: #4b5563;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <h1>Me desculpa? 🥺</h1>
-        <div class="botoes">
-            <button id="sim">Sim!</button>
-            <button id="nao">Não</button>
-        </div>
+        <h1>Estamos em manutenção</h1>
+        <p>Nosso site está temporariamente fora do ar para melhorias. Voltaremos em breve!</p>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-
-    <script>
-        // Pega os elementos dos botões
-        const simBtn = document.getElementById('sim');
-        const naoBtn = document.getElementById('nao');
-        const container = document.querySelector('.container');
-
-        // Adiciona o evento de clique para o botão SIM
-        simBtn.addEventListener('click', () => {
-            // Efeito de comemoração!
-            container.innerHTML = '<h1>Ebaaa! Desculpa mesmo moli, Eu te amo muitoo viu 🥺</h1>';
-            
-            // Lança confetes
-            confetti({
-                particleCount: 150,
-                spread: 180,
-                origin: { y: 0.6 }
-            });
-        });
-
-        // Adiciona o evento para quando o mouse passa por cima do botão NÃO
-        naoBtn.addEventListener('mouseover', () => {
-            // Calcula uma nova posição aleatória
-            const containerRect = container.getBoundingClientRect();
-            const naoBtnRect = naoBtn.getBoundingClientRect();
-
-            // Gera posições aleatórias dentro dos limites da tela
-            let newX = Math.random() * (window.innerWidth - naoBtnRect.width);
-            let newY = Math.random() * (window.innerHeight - naoBtnRect.height);
-
-            // Garante que o botão não saia da tela
-            newX = Math.max(0, Math.min(newX, window.innerWidth - naoBtnRect.width));
-            newY = Math.max(0, Math.min(newY, window.innerHeight - naoBtnRect.height));
-            
-            // Aplica a nova posição
-            naoBtn.style.position = 'absolute';
-            naoBtn.style.left = `${newX}px`;
-            naoBtn.style.top = `${newY}px`;
-        });
-
-        // Adiciona o evento de clique para o botão NÃO (caso o usuário seja muito rápido)
-        naoBtn.addEventListener('click', () => {
-            alert('Opção inválida!');
-            naoBtn.style.display = 'none'; // Faz o botão "Não" desaparecer
-        });
-
-    </script>
-
 </body>
-
 </html>
-
-
